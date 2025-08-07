@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { MdHome, MdPayment, MdGroups, MdAutoGraph, MdShoppingCart, MdSettings, MdContactPhone, MdCastForEducation, MdOutlineHistory  } from "react-icons/md";
 import { BsBellFill, BsFileBarGraph } from "react-icons/bs";
 import { FaBars } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { RxExit } from "react-icons/rx";
 
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   return (
     <div className="dashboard">
       <div className="sidebar">
@@ -120,7 +121,7 @@ const Dashboard = () => {
           <button className="p-[10px] bg-[#BC8E5B] text-white rounded-[10px]"><FaBars /></button>
           <div className="flex gap-[24px] pr-[30px]">
             <button className="text-[20px] text-[#555]"><BsBellFill/> </button>
-            <button className="text-[20px] text-[#555]"><RxExit /></button>
+            <button className="text-[20px] text-[#555]" onClick={() => navigate("/")}><RxExit /></button>
           </div>
         </div>
         <div className="main bg-slate-100 h-[94%]">

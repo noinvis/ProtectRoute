@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
+import Loading from "./pages/Loading/Loading";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Login = lazy(() => import("./pages/Login"));
@@ -28,7 +29,9 @@ const AlreadyTaken = lazy(() => import("./pages/dashboard/shop/alreadytaken/Alre
 const App = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={<Loading/>}
+      >
         {useRoutes([
           {
             path: "/",
@@ -40,143 +43,199 @@ const App = () => {
             children: [
               {
                 path: "home",
-                element: <Home first={"Kumushlar"} second={"Dars jadvali"} third={"Bosh sahifa"}/>,
+                element: (
+                  <Home
+                    first={"Kumushlar"}
+                    second={"Dars jadvali"}
+                    third={"Bosh sahifa"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Kumushlar/>
+                    element: <Kumushlar />,
                   },
                   {
                     path: "jadval",
-                    element: <Jadval/>
+                    element: <Jadval />,
                   },
-                ]
+                ],
               },
               {
                 path: "payment",
-                element: <Payment first={"Paid"} second={"Unpaid"} third={"To'lovlarim"}/>,
+                element: (
+                  <Payment
+                    first={"Paid"}
+                    second={"Unpaid"}
+                    third={"To'lovlarim"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Paid/>
+                    element: <Paid />,
                   },
                   {
                     path: "unpaid",
-                    element: <Unpaid/>
+                    element: <Unpaid />,
                   },
-                ]
+                ],
               },
               {
                 path: "group",
-                element: <Group first={"Faol"} second={"Tugagan"} third={"Guruhlarim"}/>,
+                element: (
+                  <Group
+                    first={"Faol"}
+                    second={"Tugagan"}
+                    third={"Guruhlarim"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Active/>
+                    element: <Active />,
                   },
                   {
                     path: "neytral",
-                    element: <Neytral/>
+                    element: <Neytral />,
                   },
-                ]
+                ],
               },
               {
                 path: "graph",
-                element: <Graph first={"Mening natijalarim"} second={"Yig'ilgan natijalar"} third={"Ko'rsatgichlarim"}/>,
+                element: (
+                  <Graph
+                    first={"Mening natijalarim"}
+                    second={"Yig'ilgan natijalar"}
+                    third={"Ko'rsatgichlarim"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Kumushlar/>
+                    element: <Kumushlar />,
                   },
                   {
                     path: "result",
-                    element: <Result/>
+                    element: <Result />,
                   },
-                ]
+                ],
               },
               {
                 path: "rating",
-                element: <Rating first={"Umumiy"} second={"Frontend N98"} third={"Reyting"}/>,
+                element: (
+                  <Rating
+                    first={"Umumiy"}
+                    second={"Frontend N98"}
+                    third={"Reyting"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <All/>
+                    element: <All />,
                   },
                   {
                     path: "frontend",
-                    element: <Frontend/>
+                    element: <Frontend />,
                   },
-                ]
+                ],
               },
               {
                 path: "shop",
-                element: <Shop first={"Sotuvda"} second={"Sotib olganlarim"} third={"Do'kon"}/>,
+                element: (
+                  <Shop
+                    first={"Sotuvda"}
+                    second={"Sotib olganlarim"}
+                    third={"Do'kon"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <MainShop/>
+                    element: <MainShop />,
                   },
                   {
                     path: "taken",
-                    element: <AlreadyTaken/>
+                    element: <AlreadyTaken />,
                   },
-                ]
+                ],
               },
               {
                 path: "lesson",
-                element: <Lesson first={"Men"} second={"Darsim"} third={"Qo'shimcha darslar"}/>,
+                element: (
+                  <Lesson
+                    first={"Men"}
+                    second={"Darsim"}
+                    third={"Qo'shimcha darslar"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Kumushlar/>
+                    element: <Kumushlar />,
                   },
                   {
                     path: "active",
-                    element: <Active/>
+                    element: <Active />,
                   },
-                ]
+                ],
               },
               {
                 path: "settings",
-                element: <Settings first={"Bugun"} second={"Natija"} third={"Sozlamalar"}/>,
+                element: (
+                  <Settings
+                    first={"Bugun"}
+                    second={"Natija"}
+                    third={"Sozlamalar"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Jadval/>
+                    element: <Jadval />,
                   },
                   {
                     path: "result",
-                    element: <Result/>
+                    element: <Result />,
                   },
-                ]
+                ],
               },
               {
                 path: "contact",
-                element: <Contact first={"Bog'lanish uchun to'lang"} second={"Bepul"} third={"Sozlamalar"}/>,
+                element: (
+                  <Contact
+                    first={"Bog'lanish uchun to'lang"}
+                    second={"Bepul"}
+                    third={"Sozlamalar"}
+                  />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Paid/>
+                    element: <Paid />,
                   },
                   {
                     path: "taken",
-                    element: <AlreadyTaken/>
+                    element: <AlreadyTaken />,
                   },
-                ]
+                ],
               },
               {
                 path: "about",
-                element: <About first={"Info"} second={"Profil"} third={"Haqimizda"}/>,
+                element: (
+                  <About first={"Info"} second={"Profil"} third={"Haqimizda"} />
+                ),
                 children: [
                   {
                     index: true,
-                    element: <Neytral/>
+                    element: <Neytral />,
                   },
                   {
                     path: "me",
-                    element: <Kumushlar/>
+                    element: <Kumushlar />,
                   },
-                ]
+                ],
               },
             ],
           },

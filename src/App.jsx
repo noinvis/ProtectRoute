@@ -3,7 +3,6 @@ import { useRoutes } from "react-router-dom";
 import Loading from "./pages/Loading/Loading";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Login = lazy(() => import("./pages/Login"));
 const Home = lazy(() => import("./pages/dashboard/home/Home"));
 const Payment = lazy(() => import("./pages/dashboard/payment/Payment"));
 const Group = lazy(() => import("./pages/dashboard/group/Group"));
@@ -15,34 +14,34 @@ const Settings = lazy(() => import("./pages/dashboard/settings/Settings"));
 const About = lazy(() => import("./pages/dashboard/about/About"));
 const Contact = lazy(() => import("./pages/dashboard/contact/Contact"));
 const Jadval = lazy(() => import("./pages/dashboard/home/jadval/Jadval"));
-const Kumushlar = lazy(() => import("./pages/dashboard/home/kumushlar/Kumushlar"));
+const Kumushlar = lazy(() =>
+  import("./pages/dashboard/home/kumushlar/Kumushlar")
+);
 const Paid = lazy(() => import("./pages/dashboard/payment/paid/Paid"));
 const Unpaid = lazy(() => import("./pages/dashboard/payment/unpaid/Unpaid"));
 const Active = lazy(() => import("./pages/dashboard/group/active/Active"));
 const Neytral = lazy(() => import("./pages/dashboard/group/neytral/Neytral"));
 const Result = lazy(() => import("./pages/dashboard/graph/result/Result"));
 const All = lazy(() => import("./pages/dashboard/rating/all/All"));
-const Frontend = lazy(() => import("./pages/dashboard/rating/frontend/Frontend"));
+const Frontend = lazy(() =>
+  import("./pages/dashboard/rating/frontend/Frontend")
+);
 const MainShop = lazy(() => import("./pages/dashboard/shop/mainshop/MainShop"));
-const AlreadyTaken = lazy(() => import("./pages/dashboard/shop/alreadytaken/AlreadyTaken"));
+const AlreadyTaken = lazy(() =>
+  import("./pages/dashboard/shop/alreadytaken/AlreadyTaken")
+);
 
 const App = () => {
   return (
     <div>
-      <Suspense
-        fallback={<Loading/>}
-      >
+      <Suspense fallback={<Loading />}>
         {useRoutes([
           {
             path: "/",
-            element: <Login />,
-          },
-          {
-            path: "dashboard",
             element: <Dashboard />,
             children: [
               {
-                path: "home",
+                path: "",
                 element: (
                   <Home
                     first={"Kumushlar"}
